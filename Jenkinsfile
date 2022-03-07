@@ -38,7 +38,7 @@ spec:
   node(POD_LABEL) {
     stage('Build a gradle project') {      
       container('gradle') {
-        git 'https://github.com/tvanorden/week6.git'
+        git 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git'
         stage("Echo branch") {
             sh """
             echo ${env.GIT_BRANCH}
