@@ -38,7 +38,7 @@ spec:
   node(POD_LABEL) {
     stage('Build a gradle project') {      
       container('gradle') {
-        git 'https://github.com/Yaash19/week6.git'
+        git 'https://github.com/tvanorden/week6.git'
         stage("Echo branch") {
             sh """
             echo ${env.GIT_BRANCH}
@@ -88,7 +88,7 @@ spec:
 			  echo 'COPY ./calculator-0.0.1-SNAPSHOT.jar app.jar' >> Dockerfile
 			  echo 'ENTRYPOINT ["java", "-jar", "app.jar"]' >> Dockerfile
 			  mv /mnt/calculator-0.0.1-SNAPSHOT.jar .
-			  /kaniko/executor --context `pwd` --destination narendocker123/calculator:1.0
+			  /kaniko/executor --context `pwd` --destination tvan8310/calculator:1.0
 			  '''
             }
 		if(env.BRANCH_NAME == 'feature') {
@@ -97,7 +97,7 @@ spec:
 			  echo 'COPY ./calculator-0.0.1-SNAPSHOT.jar app.jar' >> Dockerfile
 			  echo 'ENTRYPOINT ["java", "-jar", "app.jar"]' >> Dockerfile
 			  mv /mnt/calculator-0.0.1-SNAPSHOT.jar .
-			  /kaniko/executor --context `pwd` --destination narendocker123/calculator-feature:0.1
+			  /kaniko/executor --context `pwd` --destination tvan8310/calculator-feature:0.1
 			  '''
             }
         }
